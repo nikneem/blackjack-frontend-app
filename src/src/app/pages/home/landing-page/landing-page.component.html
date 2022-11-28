@@ -1,0 +1,18 @@
+<div class="home-page">
+  <div class="background-panel" [@isLoaded]="userIsLoaded ? true : false"></div>
+  <div class="user-options-panel">
+    <h1>BlackJack</h1>
+    <p>
+      Welcome to BlackJack on containers. You are welcome to join an already
+      existing table, or create a table yourself. When you create a table, you
+      will become the dealer, and you will receive a link to invite players to
+      your table.
+    </p>
+    <p class="center quote">Time to make big desicions</p>
+    <app-loading *ngIf="isLoading"></app-loading>
+    <div class="option-buttons" *ngIf="userIsLoaded">
+      <app-create-table-button></app-create-table-button>
+      <button mat-raised-button color="accent">Join existing table</button>
+    </div>
+  </div>
+</div>

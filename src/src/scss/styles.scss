@@ -1,0 +1,55 @@
+@import "./variables.scss";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #121212;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  font-family: "Josefin Sans", "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  color: $color;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 100;
+  margin: 0;
+}
+
+.center {
+  text-align: center;
+}
+.quote {
+  font-style: italic;
+}
+.full-width {
+  width: 100%;
+}
+.mat-dialog-container {
+  .mat-dialog-actions {
+    justify-content: flex-end;
+    gap: 0.5rem;
+    .mat-button-base + .mat-button-base {
+      margin-left: 0;
+    }
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 540px) {
+}
+@media only screen and (min-width: 540px) and (max-width: 900px) {
+}
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+}
+@media only screen and (min-width: 1200px) {
+}
