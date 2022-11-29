@@ -14,6 +14,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { ViewerModule } from './pages/viewer/viewer.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SessionEffects } from './state/session/session-effects';
 
 let metaReducers: any[] = [];
 @NgModule({
@@ -30,7 +31,7 @@ let metaReducers: any[] = [];
       metaReducers,
       initialState: INITIAL_APP_STATE,
     }),
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forRoot([UserEffects, SessionEffects]),
     BrowserAnimationsModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
