@@ -1,0 +1,15 @@
+.table-not-found {
+  display: flex;
+  flex-flow: row;
+  .cards {
+    padding: 0.5rem;
+  }
+  .cards::after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+  .info {
+    padding: 0.5rem;
+  }
+}

@@ -1,34 +1,30 @@
-<h1 mat-dialog-title>Create table</h1>
+<h1 mat-dialog-title translate="create-dialog.title"></h1>
 <div mat-dialog-content>
-  <p>
-    This is where you create a new table. When you create a new table, you
-    become the dealer. Start with naming your table:
-  </p>
+  <p translate="create-dialog.text"></p>
   <div *ngIf="tableForm">
     <form [formGroup]="tableForm" novalidate>
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Table name</mat-label>
+        <mat-label translate="create-dialog.name-label"></mat-label>
         <input matInput formControlName="name" />
       </mat-form-field>
     </form>
   </div>
 </div>
 <div mat-dialog-actions *ngIf="tableForm">
+  <span class="warning" *ngIf="errorMessage">{{ errorMessage }}</span>
   <app-loading *ngIf="isSending"></app-loading>
   <button
     mat-flat-button
     color="primary"
     [disabled]="!tableForm.valid || tableForm.pristine || isSending"
     (click)="createNewTable()"
-  >
-    Create
-  </button>
+    translate="button.create"
+  ></button>
   <button
     mat-flat-button
     mat-dialog-close
     color="accent"
     [disabled]="isSending"
-  >
-    Cancel
-  </button>
+    translate="button.cancel"
+  ></button>
 </div>

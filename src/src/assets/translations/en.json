@@ -1,0 +1,43 @@
+{
+  "app": {},
+  "button": {
+    "OK": "OK",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "create": "Create",
+    "join": "Join",
+    "create-table": "Create new table",
+    "join-table": "Join existing table"
+  },
+  "home": {
+    "title": "BlackJack",
+    "welcome": "Welcome to BlackJack on containers. You are welcome to join an already existing table, or create a table yourself. When you create a table, you will become the dealer, and you will receive a link to invite players to your table.",
+    "teaser": "Time to make big desicions"
+  },
+  "create-dialog": {
+    "title": "Create table",
+    "text": "This is where you create a new table. When you create a new table, you become the dealer. Start with naming your table:",
+    "name-label": "Table Name"
+  },
+  "join-dialog": {
+    "title": "Join table",
+    "text": "This is where you join an existing table. Enter the table code and click 'Join' to enter the table",
+    "table-code-label": "Table Code"
+  },
+  "player-name-dialog": {
+    "title": "Player name",
+    "text": "Please enter your name, and make sure this name complies to our Code of Conduct.",
+    "player-name-label": "Table Code"
+  },
+  "empty-state": {
+    "table": {
+      "title": "Table not found",
+      "text": "The table code used to join a table does not exist."
+    }
+  },
+  "errors": {
+    "sessions": {
+      "createfailure": "Failed to create session, this happens when an error occured on the server"
+    }
+  }
+}

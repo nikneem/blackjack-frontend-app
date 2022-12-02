@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,8 +18,14 @@ import { environment } from '../environments/environment';
 import { ViewerModule } from './pages/viewer/viewer.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SessionEffects } from './state/session/session-effects';
+import { AttendeeModule } from './pages/attendee/attendee.module';
+import { DealerModule } from './pages/dealer/dealer.module';
 
 let metaReducers: any[] = [];
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/translations/', '.json');
+}
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -27,11 +36,21 @@ let metaReducers: any[] = [];
     ReactiveFormsModule,
     HomeModule,
     ViewerModule,
+    AttendeeModule,
+    DealerModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       initialState: INITIAL_APP_STATE,
     }),
     EffectsModule.forRoot([UserEffects, SessionEffects]),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+
     BrowserAnimationsModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,

@@ -1,0 +1,30 @@
+<h1 mat-dialog-title translate="player-name-dialog.title"></h1>
+<div mat-dialog-content>
+  <p translate="player-name-dialog.text"></p>
+  <div *ngIf="playerNameForm">
+    <form [formGroup]="playerNameForm" novalidate>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label translate="player-name-dialog.player-name-label"></mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+<div mat-dialog-actions *ngIf="playerNameForm">
+  <span class="warning" *ngIf="errorMessage">{{ errorMessage }}</span>
+  <app-loading *ngIf="isSending"></app-loading>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="!playerNameForm.valid || playerNameForm.pristine || isSending"
+    (click)="changePlayerName()"
+    translate="button.ok"
+  ></button>
+  <button
+    mat-flat-button
+    mat-dialog-close
+    color="accent"
+    [disabled]="isSending"
+    translate="button.cancel"
+  ></button>
+</div>

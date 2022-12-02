@@ -1,0 +1,32 @@
+<div class="dealer-page" *ngIf="activeSession">
+  <div class="dealer-information" *ngIf="activeSession.isOwner">
+    <h1>You are the dealer</h1>
+  </div>
+
+  <div class="dealer-table">
+    <div class="players">
+      <app-player></app-player>
+      <app-player></app-player>
+      <app-player></app-player>
+    </div>
+  </div>
+
+  <!-- Not the dealer warning -->
+  <div class="no-dealer-information" *ngIf="!activeSession.isOwner">
+    <mat-card>
+      <mat-card-title>You not are the dealer</mat-card-title>
+      <mat-card-content>
+        <p>
+          You are not the dealer of this table. This page is only for dealers of
+          tables. You can either join the table as a player, or view the table
+          as a visitor.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary">Join as player</button>
+        <button mat-flat-button color="accent">View as visitor</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <!-- End not the dealer warning -->
+</div>

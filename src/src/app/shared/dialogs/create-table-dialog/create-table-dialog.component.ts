@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
@@ -22,6 +22,7 @@ export class CreateTableDialogComponent implements OnInit, OnDestroy {
 
   public tableForm: FormGroup;
   public isSending: boolean = false;
+  public errorMessage?: string;
 
   constructor(
     public dialogRef: MatDialogRef<CreateTableDialogComponent>,
@@ -57,6 +58,7 @@ export class CreateTableDialogComponent implements OnInit, OnDestroy {
       .select((str) => str.sessionState)
       .subscribe((val) => {
         this.isSending = val.isCreating;
+        this.errorMessage = val.createErrorMessage;
       });
   }
   ngOnDestroy(): void {

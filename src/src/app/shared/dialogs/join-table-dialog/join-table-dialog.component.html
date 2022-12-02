@@ -1,0 +1,30 @@
+<h1 mat-dialog-title translate="join-dialog.title"></h1>
+<div mat-dialog-content>
+  <p translate="join-dialog.text"></p>
+  <div *ngIf="tableForm">
+    <form [formGroup]="tableForm" novalidate>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label translate="join-dialog.table-code-label"></mat-label>
+        <input matInput formControlName="code" />
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+<div mat-dialog-actions *ngIf="tableForm">
+  <span class="warning" *ngIf="errorMessage">{{ errorMessage }}</span>
+  <app-loading *ngIf="isSending"></app-loading>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="!tableForm.valid || tableForm.pristine || isSending"
+    (click)="joinExistingTable()"
+    translate="button.join"
+  ></button>
+  <button
+    mat-flat-button
+    mat-dialog-close
+    color="accent"
+    [disabled]="isSending"
+    translate="button.cancel"
+  ></button>
+</div>

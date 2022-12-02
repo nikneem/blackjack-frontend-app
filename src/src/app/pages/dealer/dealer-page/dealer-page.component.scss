@@ -1,0 +1,72 @@
+.dealer-page {
+  padding: 1rem;
+  .dealer-information {
+    text-align: center;
+  }
+  .dealer-table {
+    .players {
+      display: flex;
+      flex-flow: column;
+      gap: 1rem;
+      justify-content: space-around;
+      app-player {
+        flex: 1 1;
+      }
+    }
+  }
+  .no-dealer-information {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 540px) {
+}
+@media only screen and (min-width: 540px) and (max-width: 900px) {
+  .dealer-page {
+    .no-dealer-information {
+      .mat-card {
+        width: 90%;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+  .dealer-page {
+    .dealer-table {
+      .players {
+        flex-flow: row;
+      }
+    }
+    .no-dealer-information {
+      .mat-card {
+        width: 70%;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .dealer-page {
+    .dealer-table {
+      .players {
+        flex-flow: row;
+        .player {
+          .player-cards {
+            .cards {
+              .card {
+                margin-left: -80px;
+              }
+            }
+          }
+          .actions {
+          }
+        }
+      }
+    }
+    .no-dealer-information {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    }
+  }
+}
