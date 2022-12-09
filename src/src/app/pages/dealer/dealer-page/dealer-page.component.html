@@ -3,11 +3,28 @@
     <h1>You are the dealer</h1>
   </div>
 
-  <div class="dealer-table">
-    <div class="players">
-      <app-player></app-player>
-      <app-player></app-player>
-      <app-player></app-player>
+  <div class="dealer-table" *ngIf="activeSession.isOwner">
+    <div class="players" *ngIf="players && players.length >= 0">
+      <app-player
+        [playerId]="player.id"
+        *ngFor="let player of players"
+      ></app-player>
+      <div class="players-join">
+        <mat-card>
+          <mat-card-title>Join as a player</mat-card-title>
+          <mat-card-content>
+            A table can have up to three players, feel free to joing in on the
+            party
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-flat-button>Join</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="dealer">
+      <app-dealer></app-dealer>
     </div>
   </div>
 

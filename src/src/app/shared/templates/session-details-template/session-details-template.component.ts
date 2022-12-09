@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { IAppState } from 'src/app/state/app.state';
+import { playerRetrieve } from 'src/app/state/players/players-actions';
 import { sessionRetrieve } from 'src/app/state/session/session-actions';
 import { ISessionDetailsDto } from 'src/app/state/session/session-models';
 
@@ -37,6 +38,14 @@ export class SessionDetailsTemplateComponent implements OnInit, OnDestroy {
     this.sessionSubsciption = this.store
       .select((str) => str.sessionState)
       .subscribe((val) => {
+        if (
+          val.activeSession &&
+          this.activeSession?.id !== val.activeSession?.id
+        ) {
+          this.store.dispatch(
+            playerRetrieve({ sessionId: val.activeSession.id })
+          );
+        }
         this.activeSession = val.activeSession;
         this.isLoading = val.isLoading;
         this.showEmptyState =

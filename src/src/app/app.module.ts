@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SessionEffects } from './state/session/session-effects';
 import { AttendeeModule } from './pages/attendee/attendee.module';
 import { DealerModule } from './pages/dealer/dealer.module';
+import { PlayersEffects } from './state/players/players-effects';
 
 let metaReducers: any[] = [];
 export function createTranslateLoader(http: HttpClient) {
@@ -42,7 +43,7 @@ export function createTranslateLoader(http: HttpClient) {
       metaReducers,
       initialState: INITIAL_APP_STATE,
     }),
-    EffectsModule.forRoot([UserEffects, SessionEffects]),
+    EffectsModule.forRoot([UserEffects, SessionEffects, PlayersEffects]),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

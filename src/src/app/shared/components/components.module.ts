@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TableNotFoundComponent } from './table-not-found/table-not-found.component';
 import { SessionDetailsHeaderComponent } from './session-details-header/session-details-header.component';
 import { PlayerComponent } from './player/player.component';
+import { DealerComponent } from './dealer/dealer.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PlayerComponent } from './player/player.component';
     TableNotFoundComponent,
     SessionDetailsHeaderComponent,
     PlayerComponent,
+    DealerComponent,
   ],
   imports: [CommonModule, MaterialModule, TranslateModule],
   exports: [
@@ -26,6 +28,7 @@ import { PlayerComponent } from './player/player.component';
     TableNotFoundComponent,
     SessionDetailsHeaderComponent,
     PlayerComponent,
+    DealerComponent,
   ],
 })
 export class ComponentsModule {}

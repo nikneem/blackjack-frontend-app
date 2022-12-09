@@ -1,17 +1,17 @@
 import {
-  animate,
+  trigger,
   state,
   style,
   transition,
-  trigger,
+  animate,
 } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { IPlayerCard } from '../../models/playercard';
 
 @Component({
-  selector: 'app-player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss'],
+  selector: 'app-dealer',
+  templateUrl: './dealer.component.html',
+  styleUrls: ['./dealer.component.scss'],
   animations: [
     trigger('playerValue', [
       state('false', style({ opacity: 0.8, fontSize: '1rem' })),
@@ -21,7 +21,7 @@ import { IPlayerCard } from '../../models/playercard';
     ]),
   ],
 })
-export class PlayerComponent implements OnInit {
+export class DealerComponent implements OnInit {
   @Input() public playerId?: string;
 
   public sumOfCards: number = 0;
