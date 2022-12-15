@@ -1,8 +1,20 @@
-<app-table-not-found *ngIf="showEmptyState"></app-table-not-found>
-<app-loading *ngIf="isLoading"></app-loading>
-<div class="player" *ngIf="playerId">
-  <app-player [playerId]="playerId"></app-player>
+<div class="attendee-page">
+  <div class="attendee-information">
+    <h1>You are an attendee</h1>
+    <p>
+      <span *ngIf="players">Total of {{ players.length }} player(s)</span><br />
+      <span *ngIf="players">Waiting for tound to start</span>
+    </p>
+  </div>
+  <app-table-not-found *ngIf="showEmptyState"></app-table-not-found>
+  <app-loading *ngIf="isLoading"></app-loading>
+  <div class="player" *ngIf="playerId">
+    <app-player [playerId]="playerId"></app-player>
+  </div>
+  <div class="dealer" *ngIf="playerId">
+    <app-dealer></app-dealer>
+  </div>
+  <app-add-player-panel
+    *ngIf="!isLoading && !playerId && players && players.length < 3"
+  ></app-add-player-panel>
 </div>
-<app-add-player-panel
-  *ngIf="!isLoading && !playerId && players && players.length < 3"
-></app-add-player-panel>
