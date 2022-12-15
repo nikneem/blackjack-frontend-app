@@ -5,7 +5,11 @@ import {
   transition,
   animate,
 } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { IAppState } from 'src/app/state/app.state';
+import { IPlayerDto } from 'src/app/state/players/players-models';
 import { IPlayerCard } from '../../models/playercard';
 
 @Component({
@@ -21,14 +25,18 @@ import { IPlayerCard } from '../../models/playercard';
     ]),
   ],
 })
-export class DealerComponent implements OnInit {
+export class DealerComponent implements OnInit, OnDestroy {
   @Input() public playerId?: string;
+
+  private dealerSubscription?: Subscription;
+
+  public dealer?: IPlayerDto;
 
   public sumOfCards: number = 0;
   public cards: Array<IPlayerCard>;
   public animate: boolean = false;
 
-  constructor() {
+  constructor(private store: Store<IAppState>) {
     this.cards = new Array<IPlayerCard>();
     this.cards.push({
       value: 11,
@@ -64,5 +72,16 @@ export class DealerComponent implements OnInit {
     // }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dealerSubscription = this.store
+      .select((str) => str.playersState.dealer)
+      .subscribe((val) => {
+        this.dealer = val;
+      });
+  }
+  ngOnDestroy(): void {
+    if (this.dealerSubscription) {
+      this.dealerSubscription.unsubscribe();
+    }
+  }
 }

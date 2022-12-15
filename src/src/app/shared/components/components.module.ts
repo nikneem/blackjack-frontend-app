@@ -9,6 +9,8 @@ import { TableNotFoundComponent } from './table-not-found/table-not-found.compon
 import { SessionDetailsHeaderComponent } from './session-details-header/session-details-header.component';
 import { PlayerComponent } from './player/player.component';
 import { DealerComponent } from './dealer/dealer.component';
+import { AddPlayerButtonComponent } from './add-player-button/add-player-button.component';
+import { AddPlayerPanelComponent } from './add-player-panel/add-player-panel.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { DealerComponent } from './dealer/dealer.component';
     SessionDetailsHeaderComponent,
     PlayerComponent,
     DealerComponent,
+    AddPlayerButtonComponent,
+    AddPlayerPanelComponent,
   ],
   imports: [CommonModule, MaterialModule, TranslateModule],
   exports: [
@@ -29,6 +33,8 @@ import { DealerComponent } from './dealer/dealer.component';
     SessionDetailsHeaderComponent,
     PlayerComponent,
     DealerComponent,
+    AddPlayerButtonComponent,
+    AddPlayerPanelComponent,
   ],
 })
 export class ComponentsModule {}

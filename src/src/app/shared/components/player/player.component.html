@@ -1,6 +1,8 @@
 <div class="player">
   <div class="header">
-    <div class="name">-- Name --</div>
+    <div class="name">
+      <span *ngIf="player">{{ player.displayName }}</span>
+    </div>
     <div class="points">
       <div class="text" [@playerValue]="animate">
         {{ sumOfCards }}

@@ -1,0 +1,74 @@
+.dealer {
+  background-color: rgba($color: #fff, $alpha: 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  min-width: 320px;
+  .header {
+    display: flex;
+    flex-flow: row;
+    .name {
+      font-size: 2rem;
+      flex: 9 9 90%;
+    }
+    .points {
+      flex: 1 1 10%;
+      color: #fff;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .dealer-cards {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    padding: 1rem 0 1rem 0;
+    .cards {
+      display: flex;
+      flex-flow: row;
+      .card {
+        margin-left: -30px;
+        transform: rotate(-10deg);
+      }
+      .card:first-child {
+        margin-left: 0px;
+      }
+      .card:nth-child(1) {
+        transform: rotate(-20deg);
+      }
+      .card:nth-child(2) {
+        transform: rotate(-10deg);
+      }
+      .card:nth-child(3) {
+        transform: rotate(0deg);
+      }
+      .card:nth-child(4) {
+        transform: rotate(10deg);
+      }
+      .card:nth-child(5) {
+        transform: rotate(20deg);
+      }
+      .card:nth-child(6) {
+        transform: rotate(30deg);
+      }
+      .card:nth-child(7) {
+        transform: rotate(40deg);
+      }
+    }
+  }
+  .actions {
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .dealer {
+    .dealer-cards {
+      .cards {
+        .card {
+          margin-left: -80px;
+        }
+      }
+    }
+  }
+}

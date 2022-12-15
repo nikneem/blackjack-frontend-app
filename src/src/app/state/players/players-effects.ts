@@ -5,6 +5,9 @@ import { mergeMap, map, catchError } from 'rxjs';
 import { ErrorsService } from 'src/app/services/errors.service';
 import { PlayersService } from 'src/app/services/players.service';
 import {
+  playerCreate,
+  playerCreatedOk,
+  playerCreateFailed,
   playerRetrieve,
   playerRetrievedOk,
   playerRetrieveFailed,
@@ -30,6 +33,26 @@ export class PlayersEffects {
             return this.errorService.handleError(err).pipe(
               map((err) => {
                 return playerRetrieveFailed({ error: err });
+              })
+            );
+          })
+        )
+      )
+    )
+  );
+
+  playerCreateEffect$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(playerCreate),
+      mergeMap((act) =>
+        this.playersService.post(act.dto).pipe(
+          map((dto) => {
+            return playerCreatedOk({ dto: dto });
+          }),
+          catchError((err) => {
+            return this.errorService.handleError(err).pipe(
+              map((err) => {
+                return playerCreateFailed({ error: err });
               })
             );
           })

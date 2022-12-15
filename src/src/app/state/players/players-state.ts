@@ -2,6 +2,7 @@ import { IPlayerDto } from './players-models';
 
 export interface IPlayersState {
   players?: Array<IPlayerDto>;
+  dealer?: IPlayerDto;
   isLoading: boolean;
 }
 

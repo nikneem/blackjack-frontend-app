@@ -1,33 +1,30 @@
-.loading-icon {
-  padding: 2rem;
-}
-.player {
+.add-player-panel {
   display: flex;
   flex-flow: row;
   justify-content: center;
-  app-player {
+  .add-player {
+    margin: 1rem;
     width: 90%;
   }
 }
-
 @media only screen and (min-width: 540px) and (max-width: 900px) {
-  .player {
-    app-player {
+  .add-player-panel {
+    .add-player {
       width: 70%;
     }
   }
 }
 @media only screen and (min-width: 900px) and (max-width: 1200px) {
-  .player {
-    app-player {
-      width: 60%;
+  .add-player-panel {
+    .add-player {
+      width: 50%;
     }
   }
 }
 @media only screen and (min-width: 1200px) {
-  .player {
-    app-player {
-      width: 50%;
+  .add-player-panel {
+    .add-player {
+      width: 40%;
     }
   }
 }

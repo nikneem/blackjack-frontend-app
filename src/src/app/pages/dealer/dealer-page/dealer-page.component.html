@@ -17,7 +17,7 @@
             party
           </mat-card-content>
           <mat-card-actions>
-            <button mat-flat-button>Join</button>
+            <app-add-player-button></app-add-player-button>
           </mat-card-actions>
         </mat-card>
       </div>
@@ -40,7 +40,9 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-flat-button color="primary">Join as player</button>
+        <button mat-flat-button color="primary" (click)="navigateToAttendee()">
+          Join as player
+        </button>
         <button mat-flat-button color="accent">View as visitor</button>
       </mat-card-actions>
     </mat-card>

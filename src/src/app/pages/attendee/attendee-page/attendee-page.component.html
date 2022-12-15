@@ -1,1 +1,8 @@
-<app-table-not-found *ngIf="showEmptyState"></app-table-not-found> ssss
+<app-table-not-found *ngIf="showEmptyState"></app-table-not-found>
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="player" *ngIf="playerId">
+  <app-player [playerId]="playerId"></app-player>
+</div>
+<app-add-player-panel
+  *ngIf="!isLoading && !playerId && players && players.length < 3"
+></app-add-player-panel>

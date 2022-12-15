@@ -6,6 +6,10 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { IAppState } from 'src/app/state/app.state';
+import { IPlayerDto } from 'src/app/state/players/players-models';
 import { IPlayerCard } from '../../models/playercard';
 
 @Component({
@@ -22,13 +26,16 @@ import { IPlayerCard } from '../../models/playercard';
   ],
 })
 export class PlayerComponent implements OnInit {
+  private playersStateSubscription?: Subscription;
+
   @Input() public playerId?: string;
 
+  public player?: IPlayerDto;
   public sumOfCards: number = 0;
   public cards: Array<IPlayerCard>;
   public animate: boolean = false;
 
-  constructor() {
+  constructor(private store: Store<IAppState>) {
     this.cards = new Array<IPlayerCard>();
     this.cards.push({
       value: 11,
@@ -64,5 +71,13 @@ export class PlayerComponent implements OnInit {
     // }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.playersStateSubscription = this.store
+      .select((str) => str.playersState)
+      .subscribe((val) => {
+        if (val.players) {
+          this.player = val.players.find((p) => p.id == this.playerId);
+        }
+      });
+  }
 }

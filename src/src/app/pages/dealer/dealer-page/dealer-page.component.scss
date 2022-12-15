@@ -16,6 +16,11 @@
         flex: 1 1;
       }
     }
+    .dealer {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+    }
   }
   .no-dealer-information {
     display: flex;

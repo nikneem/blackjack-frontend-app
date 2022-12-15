@@ -7,7 +7,8 @@
     "create": "Create",
     "join": "Join",
     "create-table": "Create new table",
-    "join-table": "Join existing table"
+    "join-table": "Join existing table",
+    "add-player": "Add player"
   },
   "home": {
     "title": "BlackJack",
@@ -24,10 +25,14 @@
     "text": "This is where you join an existing table. Enter the table code and click 'Join' to enter the table",
     "table-code-label": "Table Code"
   },
+  "add-player-component": {
+    "title": "Add a new player",
+    "text": "A table can host up to three players. You can add yourself to a table and join the game."
+  },
   "player-name-dialog": {
     "title": "Player name",
     "text": "Please enter your name, and make sure this name complies to our Code of Conduct.",
-    "player-name-label": "Table Code"
+    "player-name-label": "Player name"
   },
   "empty-state": {
     "table": {

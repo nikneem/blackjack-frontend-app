@@ -30,7 +30,7 @@ export class SessionEffects {
     this.actions$.pipe(
       ofType(sessionRetrieve),
       mergeMap((act) =>
-        this.sessionsService.get(act.tableCodeOrId).pipe(
+        this.sessionsService.get(act.tableCodeOrId, act.userId).pipe(
           map((dto) => {
             return sessionRetrievedOK({ dto: dto });
           }),

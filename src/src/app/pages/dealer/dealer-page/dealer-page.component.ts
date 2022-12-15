@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { IAppState } from 'src/app/state/app.state';
@@ -17,7 +18,11 @@ export class DealerPageComponent implements OnInit, OnDestroy {
   public activeSession?: ISessionDetailsDto;
   public players?: Array<IPlayerDto>;
 
-  constructor(private store: Store<IAppState>) {}
+  constructor(private store: Store<IAppState>, private router: Router) {}
+
+  public navigateToAttendee() {
+    this.router.navigate([`/attendee/${this.activeSession?.code}`]);
+  }
 
   ngOnInit(): void {
     this.sessionSubscription = this.store

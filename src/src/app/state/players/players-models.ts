@@ -5,3 +5,9 @@ export interface IPlayerDto {
   order: number;
   isDealer: boolean;
 }
+
+export interface ICreatePlayerDto {
+  sessionId: string;
+  userId: string;
+  displayName: string;
+}

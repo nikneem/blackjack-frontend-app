@@ -18,18 +18,11 @@ export class SessionsService {
       'https://blckjck-sess-prod-neu-aca.delightfulsand-07ec4153.northeurope.azurecontainerapps.io/api';
   }
 
-  public get(sessionCodeOrId: string): Observable<ISessionDetailsDto> {
-    const url = `${this.baseUrl}/sessions/${sessionCodeOrId}`;
-
-    // const mockResult = {
-    //   id: '00000000-0000-0000-0000-000000000001',
-    //   name: 'mocks session',
-    //   code: '123456',
-    //   isOwner: false,
-    // };
-
-    // return of(mockResult).pipe(delay(2500));
-
+  public get(
+    sessionCodeOrId: string,
+    userId: string
+  ): Observable<ISessionDetailsDto> {
+    const url = `${this.baseUrl}/sessions/${sessionCodeOrId}?userId=${userId}`;
     return this.http.get<ISessionDetailsDto>(url);
   }
 

@@ -18,6 +18,7 @@ export class SessionDetailsTemplateComponent implements OnInit, OnDestroy {
   private userSubsciption?: Subscription;
 
   private tableCode?: string;
+  private userId?: string;
 
   public isLoading: boolean = true;
   public showEmptyState: boolean = false;
@@ -27,14 +28,23 @@ export class SessionDetailsTemplateComponent implements OnInit, OnDestroy {
 
   private loadTableSession() {
     if (
+      this.userId &&
       this.tableCode &&
       (!this.activeSession || this.activeSession.code !== this.tableCode)
     ) {
-      this.store.dispatch(sessionRetrieve({ tableCodeOrId: this.tableCode }));
+      this.store.dispatch(
+        sessionRetrieve({ tableCodeOrId: this.tableCode, userId: this.userId })
+      );
     }
   }
 
   ngOnInit(): void {
+    this.userSubsciption = this.store
+      .select((str) => str.userState.userId)
+      .subscribe((val) => {
+        this.userId = val;
+        this.loadTableSession();
+      });
     this.sessionSubsciption = this.store
       .select((str) => str.sessionState)
       .subscribe((val) => {

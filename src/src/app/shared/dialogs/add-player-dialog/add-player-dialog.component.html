@@ -3,9 +3,11 @@
   <p translate="player-name-dialog.text"></p>
   <div *ngIf="playerNameForm">
     <form [formGroup]="playerNameForm" novalidate>
+      <input type="hidden" name="userId" formControlName="userId" />
+      <input type="hidden" name="sessionId" formControlName="sessionId" />
       <mat-form-field appearance="fill" class="full-width">
         <mat-label translate="player-name-dialog.player-name-label"></mat-label>
-        <input matInput formControlName="name" />
+        <input matInput formControlName="displayName" />
       </mat-form-field>
     </form>
   </div>
@@ -17,7 +19,7 @@
     mat-flat-button
     color="primary"
     [disabled]="!playerNameForm.valid || playerNameForm.pristine || isSending"
-    (click)="changePlayerName()"
+    (click)="addPlayer()"
     translate="button.ok"
   ></button>
   <button

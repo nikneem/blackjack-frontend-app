@@ -34,7 +34,7 @@ export const sessionJoinFailed = createAction(
 
 export const sessionRetrieve = createAction(
   '[Sessions] Retrieve',
-  props<{ tableCodeOrId: string }>()
+  props<{ tableCodeOrId: string; userId: string }>()
 );
 export const sessionRetrievedOK = createAction(
   '[Sessions] Retrieved OK',
